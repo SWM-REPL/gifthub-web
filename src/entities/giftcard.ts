@@ -1,3 +1,5 @@
+import { GetGiftcard } from '@/apis/giftcards';
+
 export default class Giftcard {
   constructor(
     public senderProfile: string,
@@ -10,7 +12,7 @@ export default class Giftcard {
     public expirationDate: Date,
   ) {}
 
-  static fromJson(json: any): Giftcard {
+  static fromJson(json: GetGiftcard): Giftcard {
     return new Giftcard(
       json.senderProfile,
       json.senderName,
