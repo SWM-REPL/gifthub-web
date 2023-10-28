@@ -1,9 +1,11 @@
 :root {
   --foreground-rgb: 0, 0, 0;
+  --background-rgb: 247, 248, 250;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb));
 }
 
 textarea,
@@ -11,4 +13,10 @@ select,
 input,
 button {
   outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
