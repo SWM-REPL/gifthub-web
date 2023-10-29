@@ -14,32 +14,32 @@
       "artifacts": [
         {
           "location": {
-            "uri": "file:///C:/Users/seheon/Documents/GitHub/gifthub-web/next-env.d.ts"
+            "uri": "next-env.d.ts"
           }
         },
         {
           "location": {
-            "uri": "file:///C:/Users/seheon/Documents/GitHub/gifthub-web/next.config.js"
+            "uri": "next.config.js"
           }
         },
         {
           "location": {
-            "uri": "file:///C:/Users/seheon/Documents/GitHub/gifthub-web/postcss.config.js"
+            "uri": "postcss.config.js"
           }
         },
         {
           "location": {
-            "uri": "file:///C:/Users/seheon/Documents/GitHub/gifthub-web/src/app/layout.tsx"
+            "uri": "src/app/layout.tsx"
           }
         },
         {
           "location": {
-            "uri": "file:///C:/Users/seheon/Documents/GitHub/gifthub-web/src/app/page.tsx"
+            "uri": "src/app/page.tsx"
           }
         },
         {
           "location": {
-            "uri": "file:///C:/Users/seheon/Documents/GitHub/gifthub-web/tailwind.config.js"
+            "uri": "tailwind.config.js"
           }
         }
       ],
