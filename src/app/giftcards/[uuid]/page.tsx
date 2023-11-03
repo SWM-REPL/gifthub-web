@@ -192,6 +192,8 @@ export default function Page({ params: { uuid } }: PageProps) {
   }
 
   function buildError(error: Error | null) {
-    return error?.message;
+    if (error?.message === 'Forbidden') {
+      setPassword('');
+    }
   }
 }

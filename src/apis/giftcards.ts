@@ -15,25 +15,22 @@ async function getGiftcard(
   uuid: string,
   password: string,
 ): Promise<GetGiftcard> {
-  try {
-    const response = await http.get(`/giftcards/${uuid}`, {
-      headers: {
-        Authorization: `Basic ${atob(password)}`,
-      },
-    });
-    return await response.json();
-  } catch {
-    return {
-      senderProfile: '/dahyeon.jpeg',
-      senderName: uuid,
-      message: password,
-      productImage: '/dahyeon.jpeg',
-      productName: '아이스 카페 아메리카노 T',
-      brandImage: '/dahyeon.jpeg',
-      brandName: '스타벅스',
-      expirationDate: '2023-07-25',
-    };
-  }
+  const response = await http.get(`/giftcards/${uuid}`, {
+    headers: {
+      Authorization: `Basic ${btoa(password)}`,
+    },
+  });
+  const json = await response.json();
+  return {
+    senderProfile: '/dahyeon.jpeg',
+    senderName: json.data.sender,
+    message: json.data.message,
+    productImage: '/dahyeon.jpeg',
+    productName: json.data.product_name,
+    brandImage: '/dahyeon.jpeg',
+    brandName: json.data.brand_name,
+    expirationDate: json.data.expires_at,
+  };
 }
 
 const GiftcardApi = {

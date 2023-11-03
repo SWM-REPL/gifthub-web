@@ -15,12 +15,8 @@ function useGiftcard(uuid: string, password: string) {
       try {
         const giftcard = await GiftcardApi.getGiftcard(uuid, password);
         setGiftcard(Giftcard.fromJson(giftcard));
-      } catch (error) {
-        if (error instanceof Error) {
-          setError(error);
-        } else {
-          setError(new Error('Unknown error'));
-        }
+      } catch (error: any) {
+        setError(Error(error.response.statusText));
       } finally {
         setLoading(false);
       }
