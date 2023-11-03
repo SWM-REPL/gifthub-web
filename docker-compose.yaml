@@ -4,7 +4,7 @@ services:
       - 80:3000
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.development
     volumes:
       - ./src:/app/src:ro
       - ./public:/app/public:ro

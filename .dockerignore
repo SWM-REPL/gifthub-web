@@ -1,1 +1,6 @@
-./yarn
+.git
+.github
+.vscode
+.yarn
+.next
+Dockerfile*
