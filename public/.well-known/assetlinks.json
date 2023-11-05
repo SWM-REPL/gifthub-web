@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "org.swmaestro.repl.GiftHub",
+            "sha256_cert_fingerprints": [
+                "CA:40:66:B3:4B:76:59:78:5F:32:7E:21:93:28:A5:76:F5:AF:E0:D6:15:6A:3B:6D:C0:08:35:56:3D:DC:D9:D7"
+            ]
+        }
+    }
+]

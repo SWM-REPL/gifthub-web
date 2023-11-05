@@ -5,7 +5,7 @@
             {
                 "appID": "62KTASP2H3.org.swmaestro.repl.GiftHub",
                 "paths": [
-                    "/deeplink/*"
+                    "/giftcards/*/deeplink"
                 ]
             }
         ]
