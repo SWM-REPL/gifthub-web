@@ -1,3 +1,5 @@
+import ApiException from '@/exceptions/http.exception';
+
 import { http } from './http';
 
 export interface GetGiftcard {
@@ -21,6 +23,11 @@ async function getGiftcard(
     },
   });
   const json = await response.json();
+
+  if (!response.ok) {
+    throw new ApiException(json.status, json.error);
+  }
+
   return {
     senderProfile: '/dahyeon.jpeg',
     senderName: json.data.sender,
