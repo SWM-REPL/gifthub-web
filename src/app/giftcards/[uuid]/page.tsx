@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 
 import OTPInput from 'react-otp-input';
+import { toast } from 'react-toastify';
 
 import Image from 'next/image';
 import { TbMail } from 'react-icons/tb';
@@ -22,21 +23,18 @@ export default function Page({ params: { uuid } }: PageProps) {
 
   useEffect(() => {
     if (password.length === 4) {
+      setPassword('');
       fetchGiftcard(password);
     }
   }, [fetchGiftcard, password]);
 
   useEffect(() => {
     if (error) {
-      setPassword('');
+      toast(error.message, { type: 'error' });
     }
   }, [error]);
 
-  return password.length !== 4
-    ? buildPassword()
-    : giftcard
-    ? buildGiftcard(giftcard)
-    : buildLoading();
+  return giftcard ? buildGiftcard(giftcard) : buildPassword();
 
   function buildPassword() {
     return (
@@ -161,9 +159,5 @@ export default function Page({ params: { uuid } }: PageProps) {
         </div>
       </div>
     );
-  }
-
-  function buildLoading() {
-    return 'Loading...';
   }
 }

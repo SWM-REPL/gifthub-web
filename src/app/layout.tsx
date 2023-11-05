@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 import './tailwind.css';
 
@@ -15,7 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html className='h-full'>
-      <body className='h-full'>{children}</body>
+      <body className='h-full'>
+        {children}
+        <ToastContainer position='top-center' />
+      </body>
     </html>
   );
 }
