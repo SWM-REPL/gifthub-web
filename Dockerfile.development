@@ -2,13 +2,10 @@ FROM node:21-alpine
 WORKDIR /app
 
 RUN apk add --no-cache libc6-compat git
-COPY package.json ./
+COPY . .
 RUN \
     corepack enable && \
-    yarn set version from sources && \
-    yarn install
+    yarn set version stable && \
+    yarn
 
-COPY ./src ./src
-COPY ./public ./public
-COPY *rc.yaml *.config.js tsconfig.json ./
 CMD ["yarn", "run", "dev"]

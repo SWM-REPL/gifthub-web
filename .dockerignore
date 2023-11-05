@@ -1,6 +1,9 @@
 .git
 .github
+.gitignore
 .vscode
 .yarn
 .next
+.pnp.*
 Dockerfile*
+eslint-results.sarif
