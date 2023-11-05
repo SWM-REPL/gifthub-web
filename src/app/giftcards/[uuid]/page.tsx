@@ -6,6 +6,7 @@ import OTPInput from 'react-otp-input';
 import { toast } from 'react-toastify';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { TbMail } from 'react-icons/tb';
 
 import Giftcard from '@/entities/giftcard';
@@ -135,11 +136,13 @@ export default function Page({ params: { uuid } }: PageProps) {
                 <div className='mt-3' />
               </div>
               <div className='ml-3' />
-              <div className='bg-red-600 rounded-md w-36 text-center text-white font-medium'>
-                <div className='mt-3' />
-                선물 등록하기
-                <div className='mt-3' />
-              </div>
+              <Link href={`/giftcards/${uuid}/deeplink`}>
+                <div className='bg-red-600 rounded-md w-36 text-center text-white font-medium'>
+                  <div className='mt-3' />
+                  선물 등록하기
+                  <div className='mt-3' />
+                </div>
+              </Link>
             </div>
             <div className='mt-8' />
             <div className='flex'>
