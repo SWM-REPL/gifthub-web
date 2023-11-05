@@ -1,7 +1,7 @@
 import returnFetch from 'return-fetch';
 
 const instance = returnFetch({
-  baseUrl: 'https://api.dev.gifthub.kr',
+  baseUrl: 'https://api.gifthub.kr',
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
