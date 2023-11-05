@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { useForm } from 'react-hook-form';
+import OTPInput from 'react-otp-input';
 
 import Image from 'next/image';
 import { TbMail } from 'react-icons/tb';
@@ -16,73 +16,49 @@ interface PageProps {
   };
 }
 
-type PasswordDigits = { '0': string; '1': string; '2': string; '3': string };
-
 export default function Page({ params: { uuid } }: PageProps) {
-  const {
-    register,
-    handleSubmit,
-    setFocus,
-    formState: { errors },
-  } = useForm<PasswordDigits>();
   const [password, setPassword] = useState('');
-  const { giftcard, loading, error } = useGiftcard(uuid, password);
+  const { giftcard, fetchGiftcard, error } = useGiftcard(uuid);
 
   useEffect(() => {
-    setFocus('0');
-  });
+    if (password.length === 4) {
+      fetchGiftcard(password);
+    }
+  }, [fetchGiftcard, password]);
 
-  return password === ''
+  useEffect(() => {
+    if (error) {
+      setPassword('');
+    }
+  }, [error]);
+
+  return password.length !== 4
     ? buildPassword()
     : giftcard
     ? buildGiftcard(giftcard)
-    : loading
-    ? buildLoading()
-    : buildError(error);
+    : buildLoading();
 
   function buildPassword() {
-    function PasswordDigit({ index }: { index: number }) {
-      return (
-        <input
-          className={`w-full outline-none caret-transparent text-center text-xl ${
-            errors[index.toString() as keyof PasswordDigits] && 'border-red-500'
-          }`}
-          maxLength={1}
-          type='number'
-          onFocus={(e) => (e.target.value = '')}
-          {...register(index.toString() as keyof PasswordDigits, {
-            required: true,
-            min: 0,
-            max: 9,
-            onChange: () => {
-              if (index === 3) {
-                handleSubmit((data) => {
-                  setPassword(data['0'] + data['1'] + data['2'] + data['3']);
-                })();
-              } else {
-                setFocus((index + 1).toString() as keyof PasswordDigits);
-              }
-            },
-          })}
-        />
-      );
-    }
-
     return (
       <div className='w-full h-full flex flex-col justify-evenly items-center text-center'>
         <div>
           <h1 className='font-bold text-xl'>비밀번호를 입력해주세요</h1>
           <div className='mt-4' />
           <div className='p-6 w-60 rounded-lg bg-white'>
-            <div className='flex'>
-              <PasswordDigit index={0} />
-              <div className='ml-1' />
-              <PasswordDigit index={1} />
-              <div className='ml-1' />
-              <PasswordDigit index={2} />
-              <div className='ml-1' />
-              <PasswordDigit index={3} />
-            </div>
+            <OTPInput
+              value={password}
+              onChange={setPassword}
+              numInputs={4}
+              containerStyle={'flex justify-between'}
+              inputStyle={
+                'w-full caret-transparent border rounded-md text-center text-xl'
+              }
+              inputType='number'
+              renderSeparator={() => <span className='mx-1' />}
+              renderInput={(props) => <input {...props} />}
+              shouldAutoFocus
+              skipDefaultStyles
+            />
           </div>
         </div>
       </div>
@@ -189,11 +165,5 @@ export default function Page({ params: { uuid } }: PageProps) {
 
   function buildLoading() {
     return 'Loading...';
-  }
-
-  function buildError(error: Error | null) {
-    if (error?.message === 'Forbidden') {
-      setPassword('');
-    }
   }
 }
