@@ -7,6 +7,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.gifthub.kr',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.dev.gifthub.kr',
+      },
     ],
   },
   async headers() {
