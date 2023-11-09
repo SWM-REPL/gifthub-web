@@ -7,7 +7,9 @@
             "namespace": "android_app",
             "package_name": "org.swmaestro.repl.GiftHub",
             "sha256_cert_fingerprints": [
-                "CA:40:66:B3:4B:76:59:78:5F:32:7E:21:93:28:A5:76:F5:AF:E0:D6:15:6A:3B:6D:C0:08:35:56:3D:DC:D9:D7"
+                "CA:40:66:B3:4B:76:59:78:5F:32:7E:21:93:28:A5:76:F5:AF:E0:D6:15:6A:3B:6D:C0:08:35:56:3D:DC:D9:D7",
+                "F3:92:4F:BA:47:C3:20:0E:35:87:C5:3A:70:1C:6D:6E:C2:E5:31:1B:CE:C5:08:B5:44:44:29:0A:27:26:C0:88",
+                "E0:17:91:BD:A0:E7:23:F5:46:FC:62:03:4E:06:4A:CF:2A:9E:A7:53:40:BF:18:FC:15:EA:58:2D:80:E5:C2:C2"
             ]
         }
     }
