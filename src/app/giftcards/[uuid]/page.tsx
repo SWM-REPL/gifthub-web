@@ -39,18 +39,18 @@ export default function Page({ params: { uuid } }: PageProps) {
 
   function buildPassword() {
     return (
-      <div className='w-full h-full flex flex-col justify-evenly items-center text-center'>
+      <div className='w-full h-screen flex flex-col justify-evenly items-center text-center'>
         <div>
           <h1 className='font-bold text-xl'>비밀번호를 입력해주세요</h1>
           <div className='mt-4' />
-          <div className='p-6 w-60 rounded-lg bg-white'>
+          <div className='p-6 w-65 rounded-lg bg-white'>
             <OTPInput
               value={password}
               onChange={setPassword}
               numInputs={4}
               containerStyle={'flex justify-between'}
               inputStyle={
-                'w-full caret-transparent border rounded-md text-center text-xl'
+                'w-12 caret-transparent border rounded-md text-center text-xl'
               }
               inputType='number'
               renderSeparator={() => <span className='mx-1' />}
@@ -103,7 +103,7 @@ export default function Page({ params: { uuid } }: PageProps) {
                   width: '12.5rem',
                   height: '12.5rem',
                 }}
-                src='/dahyeon.jpeg'
+                src={giftcard.productImage}
                 alt='Product image'
               />
             </div>
@@ -130,22 +130,18 @@ export default function Page({ params: { uuid } }: PageProps) {
             </p>
             <div className='mt-6' />
             <div className='flex'>
-              <div className='border rounded-md w-36 text-center text-gray-400 font-medium'>
-                <div className='mt-3' />
+              <div className='border flex items-center justify-center rounded-md w-36 h-12 text-center text-gray-400 font-medium'>
                 교환권 저장
-                <div className='mt-3' />
               </div>
               <div className='ml-3' />
               <Link href={`/giftcards/${uuid}/deeplink`}>
-                <div className='bg-red-600 rounded-md w-36 text-center text-white font-medium'>
-                  <div className='mt-3' />
+                <div className='bg-red-600 flex items-center justify-center rounded-md w-36 h-12 text-center text-white font-medium'>
                   선물 등록하기
-                  <div className='mt-3' />
                 </div>
               </Link>
             </div>
             <div className='mt-8' />
-            <div className='flex'>
+            <div className='flex items-center'>
               <Image
                 className='rounded-full'
                 width={32}
