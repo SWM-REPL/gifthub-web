@@ -14,14 +14,14 @@ export default class Giftcard {
 
   static fromJson(json: GetGiftcard): Giftcard {
     return new Giftcard(
-      json.senderProfile,
-      json.senderName,
+      '/dahyeon.jpeg',
+      json.sender,
       json.message,
-      json.productImage,
-      json.productName,
-      json.brandImage,
-      json.brandName,
-      new Date(json.expirationDate),
+      json.product.image_url,
+      json.product.name,
+      json.brand.image_url,
+      json.brand.name,
+      new Date(json.expires_at),
     );
   }
 
