@@ -3,16 +3,24 @@ import ApiException from '@/exceptions/http.exception';
 import { http } from './http';
 
 export interface GetGiftcard {
-  senderProfile: string;
-  senderName: string;
+  sender: string;
   message: string;
-  productImage: string;
-  productName: string;
-  brandImage: string;
-  brandName: string;
-  expirationDate: string;
+  brand: {
+    id: number;
+    name: string;
+    image_url: string;
+  };
+  product: {
+    id: number;
+    brand_id: number;
+    name: string;
+    description: string;
+    is_reusable: number;
+    price: number;
+    image_url: string;
+  };
+  expires_at: string;
 }
-
 async function getGiftcard(
   uuid: string,
   password: string,
@@ -28,16 +36,7 @@ async function getGiftcard(
     throw new ApiException(json.status, json.error);
   }
 
-  return {
-    senderProfile: '/dahyeon.jpeg',
-    senderName: json.data.sender,
-    message: json.data.message,
-    productImage: '/dahyeon.jpeg',
-    productName: json.data.product_name,
-    brandImage: '/dahyeon.jpeg',
-    brandName: json.data.brand_name,
-    expirationDate: json.data.expires_at,
-  };
+  return json.data;
 }
 
 const GiftcardApi = {
