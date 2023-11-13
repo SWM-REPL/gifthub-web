@@ -6,7 +6,6 @@ import OTPInput from 'react-otp-input';
 import { toast } from 'react-toastify';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { TbMail } from 'react-icons/tb';
 
 import Giftcard from '@/entities/giftcard';
@@ -134,11 +133,14 @@ export default function Page({ params: { uuid } }: PageProps) {
                 교환권 저장
               </div>
               <div className='ml-3' />
-              <Link href={`/giftcards/${uuid}/deeplink`}>
+              <a
+                href={`/giftcards/${uuid}/deeplink`}
+                target='_blank'
+                rel='noreferrer'>
                 <div className='bg-red-600 flex items-center justify-center rounded-md w-36 h-12 text-center text-white font-medium'>
                   선물 등록하기
                 </div>
-              </Link>
+              </a>
             </div>
             <div className='mt-8' />
             <div className='flex items-center'>
@@ -147,7 +149,7 @@ export default function Page({ params: { uuid } }: PageProps) {
                 width={32}
                 height={32}
                 style={{ objectFit: 'cover', width: '2rem', height: '2rem' }}
-                src='/dahyeon.jpeg'
+                src='https://cdn.gifthub.kr/logo.png'
                 alt='GiftHub logo'
               />
               <div className='ml-2' />
