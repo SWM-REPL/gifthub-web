@@ -14,7 +14,7 @@ export default class Giftcard {
 
   static fromJson(json: GetGiftcard): Giftcard {
     return new Giftcard(
-      '/dahyeon.jpeg',
+      'https://cdn.gifthub.kr/logo.png',
       json.sender,
       json.message,
       json.product.image_url,
