@@ -11,9 +11,11 @@ export default function Page() {
         <br />
         최신버전으로 업데이트 해주세요.
       </p>
-      <button className='mt-4 w-48 h-12 bg-red-500 rounded text-white'>
-        다운로드
-      </button>
+      <a href='https://play.google.com/store/apps/details?id=org.swmaestro.repl.GiftHub'>
+        <div className='mt-4 w-48 h-12 bg-red-500 rounded text-white'>
+          다운로드
+        </div>
+      </a>
     </div>
   );
 }
